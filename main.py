@@ -5,8 +5,10 @@ from wtforms import StringField, SubmitField, SelectField, TimeField, URLField
 from wtforms.validators import DataRequired, URL
 import csv
 
+FLASK_KEY = os.urandom(32)
+
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = FLASK_KEY
 Bootstrap5(app)
 
 
@@ -47,4 +49,4 @@ def cafes():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False, host='0.0.0.0', port=8080)
